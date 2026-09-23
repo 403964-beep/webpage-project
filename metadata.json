@@ -1,0 +1,8 @@
+{
+  "name": "Kiyan Rackley - Personal Website",
+  "description": "Multi-page personal website and portfolio with media gallery, project showcases, contact persistence, and authenticated admin dashboard.",
+  "requestFramePermissions": [],
+  "majorCapabilities": [
+    "MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"
+  ]
+}

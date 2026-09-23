@@ -1,0 +1,216 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Kiyan Rackley - Personal Website</title>
+  <meta name="description" content="Personal portfolio of Kiyan Rackley - Freshman student-athlete at Grossmont High School, football player, tech creator, and aspiring USC Trojan.">
+  <meta property="og:title" content="Kiyan Rackley - Personal Website">
+  <meta property="og:description" content="Personal portfolio of Kiyan Rackley - Freshman student-athlete at Grossmont High School, football player, tech creator, and aspiring USC Trojan.">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+  <!-- Universal Header & Navigation -->
+  <header class="site-header">
+    <div class="header-container">
+      <a href="index.html" class="brand-logo" id="header-brand-logo">
+        <div class="logo-badge">KR</div>
+        <div class="brand-text">
+          <span class="brand-name">Kiyan Rackley</span>
+          <span class="brand-tagline">Grossmont HS Freshman • Football & Tech</span>
+        </div>
+      </a>
+
+      <button class="nav-toggle-btn" id="nav-toggle-btn" aria-label="Toggle Navigation Menu" aria-expanded="false">
+        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <line x1="3" y1="12" x2="21" y2="12"></line>
+          <line x1="3" y1="6" x2="21" y2="6"></line>
+          <line x1="3" y1="18" x2="21" y2="18"></line>
+        </svg>
+      </button>
+
+      <nav aria-label="Main Navigation">
+        <ul class="nav-menu" id="nav-menu">
+          <li class="nav-item"><a href="index.html" class="active" id="nav-link-home">Home</a></li>
+          <li class="nav-item"><a href="media.html" id="nav-link-media">Media</a></li>
+          <li class="nav-item"><a href="future.html" id="nav-link-future">Future</a></li>
+          <li class="nav-item"><a href="athletics.html" id="nav-link-athletics">Athletics</a></li>
+          <li class="nav-item"><a href="hobbies.html" id="nav-link-hobbies">Hobbies</a></li>
+          <li class="nav-item"><a href="admin.html" id="nav-link-admin">Admin</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <div class="page-container">
+      <!-- Hero Section with Student Face Photo Above the Fold -->
+      <section class="hero-section" id="hero-section">
+        <div class="student-photo-wrapper" id="student-photo-wrapper">
+          <img 
+            src="assets/images/student-portrait.jpg" 
+            alt="Portrait of Kiyan Rackley in the computer lab" 
+            class="student-photo" 
+            id="student-hero-portrait"
+          >
+          <div class="photo-tag">Kiyan Rackley • Student-Athlete</div>
+          
+          <div class="photo-upload-overlay" id="photo-upload-overlay">
+            <label for="portrait-file-input" class="photo-upload-btn" id="photo-upload-btn" title="Upload your exact original photo">
+              <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M23 19a2 2 0 0 1-2 2H3a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h4l2-3h6l2 3h4a2 2 0 0 1 2 2z"></path>
+                <circle cx="12" cy="13" r="4"></circle>
+              </svg>
+              <span>Upload Photo</span>
+            </label>
+            <input type="file" id="portrait-file-input" accept="image/*" class="sr-only" style="display: none;">
+          </div>
+          <div id="photo-upload-status" class="photo-upload-status"></div>
+        </div>
+
+        <div class="hero-content">
+          <span class="hero-role" id="student-role">Grossmont High School Freshman • Football Player • Future USC Trojan</span>
+          <h1 id="hero-title">Freshman at Grossmont High School, Football Player & Future USC Trojan</h1>
+
+          <div class="quick-facts-bar" id="quick-facts-bar">
+            <span class="fact-badge" id="fact-highschool"><span class="fact-icon">🏈</span> Football at Grossmont High School</span>
+            <span class="fact-badge" id="fact-freshman"><span class="fact-icon">🎓</span> High School Freshman</span>
+            <span class="fact-badge" id="fact-college"><span class="fact-icon">✌️</span> Dream College: USC Trojans</span>
+            <span class="fact-badge" id="fact-technology"><span class="fact-icon">💻</span> Tech & Web Development</span>
+          </div>
+
+          <!-- Crucial Requirement: Biography contains exactly 2 or 3 <p> elements -->
+          <div class="biography-wrapper" id="student-biography">
+            <p id="bio-p1">
+              Welcome to my official digital portfolio! I am Kiyan Rackley, a freshman student-athlete at Grossmont High School in California where I play football for the Grossmont Foothillers. On the gridiron, I bring relentless work ethic, physical toughness, and teamwork to every snap. Off the field, I channel that same drive into technology and software engineering, creating full-stack web applications and mastering modern computer science skills.
+            </p>
+            <p id="bio-p2">
+              My ultimate dream college is the University of Southern California (USC). As an aspiring USC Trojan, I am dedicated to pushing myself daily in rigorous academics, athletic training, and creative coding to earn my place at USC and study computer science. Whether breaking down plays on the field or engineering responsive web tools with JavaScript and Node.js, I believe that discipline, perseverance, and passion lead to excellence in everything I do.
+            </p>
+          </div>
+
+          <div class="hero-buttons">
+            <a href="#contact-section" class="btn btn-primary" id="btn-get-in-touch">Get in Touch</a>
+            <a href="projects.html" class="btn btn-outline" id="btn-view-projects">Explore Projects</a>
+          </div>
+        </div>
+      </section>
+
+      <!-- Contact Section with Form and Direct Information -->
+      <section class="contact-section" id="contact-section">
+        <div class="contact-layout">
+          <div class="contact-info">
+            <h2>Let's Connect</h2>
+            <p>
+              Have an exciting project, research partnership, or speaking opportunity? Send me a message using the form, or reach out through my direct channels below.
+            </p>
+
+            <ul class="contact-links">
+              <li class="contact-link-item">
+                <a href="mailto:kiyan.rackley.portfolio@example.com" id="contact-email-link">
+                  <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path><polyline points="22,6 12,13 2,6"></polyline></svg>
+                  <span>kiyan.rackley.portfolio@example.com</span>
+                </a>
+              </li>
+              <li class="contact-link-item">
+                <a href="tel:+15550192834" id="contact-phone-link">
+                  <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"></path></svg>
+                  <span>+1 (555) 019-2834</span>
+                </a>
+              </li>
+              <li class="contact-link-item">
+                <span style="display:flex; align-items:center; gap:0.75rem; color:var(--text-muted); font-size:0.95rem;">
+                  <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path><circle cx="12" cy="10" r="3"></circle></svg>
+                  <span>Seattle, Washington • Available Globally</span>
+                </span>
+              </li>
+            </ul>
+
+            <div class="social-pill-group">
+              <a href="https://github.com" target="_blank" rel="noopener noreferrer" class="social-pill" id="social-link-github">
+                <span>GitHub</span>
+              </a>
+              <a href="https://linkedin.com" target="_blank" rel="noopener noreferrer" class="social-pill" id="social-link-linkedin">
+                <span>LinkedIn</span>
+              </a>
+              <a href="https://twitter.com" target="_blank" rel="noopener noreferrer" class="social-pill" id="social-link-twitter">
+                <span>X / Twitter</span>
+              </a>
+            </div>
+          </div>
+
+          <!-- Public Contact Form -->
+          <div class="contact-form-wrapper">
+            <div id="form-success-message" class="form-feedback success" role="alert"></div>
+            <div id="form-error-message" class="form-feedback error" role="alert"></div>
+
+            <form id="contact-form" class="contact-form" novalidate>
+              <div class="form-row">
+                <div class="form-group">
+                  <label for="first-name">First Name <span class="required">*</span></label>
+                  <input type="text" id="first-name" name="firstName" class="form-control" placeholder="Jane" required>
+                </div>
+                <div class="form-group">
+                  <label for="last-name">Last Name <span class="required">*</span></label>
+                  <input type="text" id="last-name" name="lastName" class="form-control" placeholder="Doe" required>
+                </div>
+              </div>
+
+              <div class="form-group">
+                <label for="email">Email Address <span class="required">*</span></label>
+                <input type="email" id="email" name="email" class="form-control" placeholder="jane.doe@example.com" required>
+              </div>
+
+              <div class="form-group">
+                <label for="reason">Reason for Contact <span class="required">*</span></label>
+                <select id="reason" name="reason" class="form-control" required>
+                  <option value="" disabled selected>Select an option...</option>
+                  <option value="Comment">Comment</option>
+                  <option value="Question">Question</option>
+                  <option value="Partnership">Partnership</option>
+                  <option value="Opportunity">Opportunity</option>
+                  <option value="Other">Other</option>
+                </select>
+              </div>
+
+              <div class="form-group">
+                <label for="message">Your Message <span class="required">*</span></label>
+                <textarea id="message" name="message" class="form-control" rows="4" placeholder="Write your message or inquiry here..." required></textarea>
+              </div>
+
+              <button type="submit" class="btn btn-primary" id="contact-submit-btn">Send Message</button>
+            </form>
+          </div>
+        </div>
+      </section>
+    </div>
+  </main>
+
+  <!-- Universal Footer -->
+  <footer class="site-footer">
+    <div class="footer-container">
+      <div class="footer-top">
+        <div class="brand-logo">
+          <div class="logo-badge">KR</div>
+          <span class="brand-name">Kiyan Rackley</span>
+        </div>
+        <nav class="footer-nav" aria-label="Footer Navigation">
+          <a href="index.html">Home</a>
+          <a href="media.html">Media</a>
+          <a href="future.html">Future</a>
+          <a href="athletics.html">Athletics</a>
+          <a href="hobbies.html">Hobbies</a>
+          <a href="admin.html">Admin Dashboard</a>
+        </nav>
+      </div>
+      <div class="footer-bottom">
+        <p>&copy; 2026 Kiyan Rackley. All rights reserved.</p>
+        <p>Built with HTML, CSS, JavaScript, and Node.js Express.</p>
+      </div>
+    </div>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>

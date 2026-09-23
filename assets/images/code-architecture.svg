@@ -1,0 +1,30 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 500" width="100%" height="100%">
+  <rect width="800" height="500" fill="#022c22" rx="16"/>
+  <rect x="50" y="40" width="700" height="420" rx="12" fill="#064e3b" stroke="#34d399" stroke-width="2"/>
+  <text x="400" y="85" fill="#a7f3d0" font-size="24" font-family="system-ui, sans-serif" font-weight="bold" text-anchor="middle">Full-Stack Application Architecture</text>
+  <!-- Client Block -->
+  <rect x="100" y="130" width="160" height="150" rx="10" fill="#065f46" stroke="#10b981" stroke-width="2"/>
+  <text x="180" y="170" fill="#ecfdf5" font-size="16" font-weight="bold" font-family="system-ui, sans-serif" text-anchor="middle">Client Tier</text>
+  <text x="180" y="200" fill="#a7f3d0" font-size="12" font-family="system-ui, sans-serif" text-anchor="middle">6 Semantic HTML Pages</text>
+  <text x="180" y="225" fill="#a7f3d0" font-size="12" font-family="system-ui, sans-serif" text-anchor="middle">Modern CSS & Themes</text>
+  <text x="180" y="250" fill="#a7f3d0" font-size="12" font-family="system-ui, sans-serif" text-anchor="middle">Fetch API & Auth Token</text>
+  <!-- Arrows -->
+  <line x1="260" y1="205" x2="330" y2="205" stroke="#34d399" stroke-width="4" stroke-dasharray="6"/>
+  <!-- Server Block -->
+  <rect x="330" y="130" width="160" height="150" rx="10" fill="#065f46" stroke="#10b981" stroke-width="2"/>
+  <text x="410" y="170" fill="#ecfdf5" font-size="16" font-weight="bold" font-family="system-ui, sans-serif" text-anchor="middle">Express Server</text>
+  <text x="410" y="200" fill="#a7f3d0" font-size="12" font-family="system-ui, sans-serif" text-anchor="middle">POST /api/contact</text>
+  <text x="410" y="225" fill="#a7f3d0" font-size="12" font-family="system-ui, sans-serif" text-anchor="middle">Admin Auth & Tokens</text>
+  <text x="410" y="250" fill="#a7f3d0" font-size="12" font-family="system-ui, sans-serif" text-anchor="middle">PATCH Reply Logic</text>
+  <!-- Arrows -->
+  <line x1="490" y1="205" x2="560" y2="205" stroke="#34d399" stroke-width="4" stroke-dasharray="6"/>
+  <!-- Storage Block -->
+  <rect x="560" y="130" width="160" height="150" rx="10" fill="#065f46" stroke="#10b981" stroke-width="2"/>
+  <text x="640" y="170" fill="#ecfdf5" font-size="16" font-weight="bold" font-family="system-ui, sans-serif" text-anchor="middle">App Storage</text>
+  <text x="640" y="200" fill="#a7f3d0" font-size="12" font-family="system-ui, sans-serif" text-anchor="middle">contactReceived.json</text>
+  <text x="640" y="225" fill="#a7f3d0" font-size="12" font-family="system-ui, sans-serif" text-anchor="middle">Persistent Array []</text>
+  <text x="640" y="250" fill="#a7f3d0" font-size="12" font-family="system-ui, sans-serif" text-anchor="middle">Safe Atomic Updates</text>
+
+  <text x="400" y="340" fill="#f0fdf4" font-size="16" font-family="system-ui, sans-serif" font-weight="600" text-anchor="middle">Zero External Cloud Dependencies • Autonomous Full-Stack Node Runtime</text>
+  <text x="400" y="375" fill="#a7f3d0" font-size="13" font-family="system-ui, sans-serif" text-anchor="middle">Validated on Container Port 3000 with Ingress Reverse-Proxy Routing</text>
+</svg>

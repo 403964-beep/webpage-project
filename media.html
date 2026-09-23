@@ -1,0 +1,572 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Media - Kiyan Rackley</title>
+  <meta name="description" content="Visual portfolio, laboratory demos, award presentations, and social highlights from Kiyan Rackley.">
+  <meta property="og:title" content="Media - Kiyan Rackley">
+  <meta property="og:description" content="Visual portfolio, laboratory demos, award presentations, and social highlights from Kiyan Rackley.">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+  <!-- Universal Header -->
+  <header class="site-header">
+    <div class="header-container">
+      <a href="index.html" class="brand-logo">
+        <div class="logo-badge">KR</div>
+        <div class="brand-text">
+          <span class="brand-name">Kiyan Rackley</span>
+          <span class="brand-tagline">Grossmont HS Freshman • Football & Tech</span>
+        </div>
+      </a>
+
+      <button class="nav-toggle-btn" id="nav-toggle-btn" aria-label="Toggle Navigation Menu" aria-expanded="false">
+        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <line x1="3" y1="12" x2="21" y2="12"></line>
+          <line x1="3" y1="6" x2="21" y2="6"></line>
+          <line x1="3" y1="18" x2="21" y2="18"></line>
+        </svg>
+      </button>
+
+      <nav aria-label="Main Navigation">
+        <ul class="nav-menu" id="nav-menu">
+          <li class="nav-item"><a href="index.html" id="nav-link-home">Home</a></li>
+          <li class="nav-item"><a href="media.html" class="active" id="nav-link-media">Media</a></li>
+          <li class="nav-item"><a href="future.html" id="nav-link-future">Future</a></li>
+          <li class="nav-item"><a href="projects.html" id="nav-link-projects">Projects</a></li>
+          <li class="nav-item"><a href="hobbies.html" id="nav-link-hobbies">Hobbies</a></li>
+          <li class="nav-item"><a href="admin.html" id="nav-link-admin">Admin</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <div class="page-hero-banner">
+      <h1>Media</h1>
+      <p class="subtitle">
+        Explore photo documentation, live video demonstrations, student awards, and social updates capturing my engineering journey.
+      </p>
+    </div>
+
+    <div class="page-container">
+      <!-- Gallery Management Toolbar -->
+      <div class="gallery-management-bar" id="gallery-management-bar">
+        <div class="gallery-bar-info">
+          <span class="gallery-count-badge">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+              <rect x="3" y="3" width="18" height="18" rx="2" ry="2"></rect>
+              <circle cx="8.5" cy="8.5" r="1.5"></circle>
+              <polyline points="21 15 16 10 5 21"></polyline>
+            </svg>
+            9 Media Highlights
+          </span>
+          <span class="gallery-bar-desc">Customize or swap out photos across the media showcase anytime.</span>
+        </div>
+        <div class="gallery-bar-actions">
+          <button type="button" class="btn btn-outline btn-sm" id="btn-toggle-edit-mode" aria-pressed="false">
+            <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M11 4H4a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2v-7"></path>
+              <path d="M18.5 2.5a2.121 2.121 0 0 1 3 3L12 15l-4 1 1-4 9.5-9.5z"></path>
+            </svg>
+            <span>Highlight Change Buttons</span>
+          </button>
+          <button type="button" class="btn btn-primary btn-sm" id="btn-quick-change-any">
+            <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M23 19a2 2 0 0 1-2 2H3a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h4l2-3h6l2 3h4a2 2 0 0 1 2 2z"></path>
+              <circle cx="12" cy="13" r="4"></circle>
+            </svg>
+            <span>Change An Image</span>
+          </button>
+          <button type="button" class="btn btn-outline btn-sm" id="btn-reset-all-media" title="Reset all custom images to default" style="display: none; color: #f87171; border-color: rgba(239, 68, 68, 0.4);">
+            ↺ Reset All Images
+          </button>
+        </div>
+      </div>
+
+      <!-- Gallery Grid (9 Media Cards Requirement) -->
+      <section class="gallery-grid" id="media-gallery-grid" aria-label="Media Showcase">
+
+        <!-- Card 1: Image - Student Portrait -->
+        <article 
+          class="gallery-card" 
+          id="gallery-card-1"
+          data-type="image"
+          data-title="Grossmont High School Computer Lab Portrait"
+          data-caption="Portrait of Kiyan Rackley in the Grossmont High School computer lab."
+          data-src="assets/images/student-portrait.jpg"
+        >
+          <div class="gallery-media-frame">
+            <span class="media-badge">Photo</span>
+            <img src="assets/images/student-portrait.jpg" alt="Kiyan Rackley in the Grossmont High School computer lab" loading="lazy">
+            <button type="button" class="card-edit-image-btn" data-card-id="gallery-card-1" title="Change this image" aria-label="Change image for Computer Lab Portrait">
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M23 19a2 2 0 0 1-2 2H3a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h4l2-3h6l2 3h4a2 2 0 0 1 2 2z"></path>
+                <circle cx="12" cy="13" r="4"></circle>
+              </svg>
+              <span>Change Image</span>
+            </button>
+          </div>
+          <div class="gallery-card-body">
+            <h2 class="gallery-card-title">Computer Lab Portrait</h2>
+            <p class="gallery-card-caption">
+              Working in the computer lab where I code, study, and develop projects.
+            </p>
+            <div class="gallery-card-action">
+              <span>Click to enlarge view &rarr;</span>
+              <button type="button" class="card-change-link-btn" data-card-id="gallery-card-1">Change Image</button>
+            </div>
+          </div>
+        </article>
+
+        <!-- Card 2: Video - Football Highlights vs Otay Ranch (Hudl) -->
+        <article 
+          class="gallery-card" 
+          id="gallery-card-2"
+          data-type="video"
+          data-title="Football Highlights vs Otay Ranch High School"
+          data-caption="Grossmont High School varsity game film and highlight reel of Kiyan Rackley vs Otay Ranch High School on Hudl."
+          data-src="assets/videos/kiyan-otay-ranch-highlight.mp4"
+          data-external-url="https://www.hudl.com/video/3/31250679/6ab40fd6c15809e551a912b8"
+        >
+          <div class="gallery-media-frame">
+            <span class="media-badge">Video • Hudl</span>
+            <video src="assets/videos/kiyan-otay-ranch-highlight.mp4" poster="assets/images/hudl-otay-ranch-thumb.jpg" preload="metadata" muted playsinline></video>
+            <button type="button" class="card-edit-image-btn" data-card-id="gallery-card-2" title="Change this image / video" aria-label="Change media for Football Highlights vs Otay Ranch">
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M23 19a2 2 0 0 1-2 2H3a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h4l2-3h6l2 3h4a2 2 0 0 1 2 2z"></path>
+                <circle cx="12" cy="13" r="4"></circle>
+              </svg>
+              <span>Change Media</span>
+            </button>
+          </div>
+          <div class="gallery-card-body">
+            <h2 class="gallery-card-title">Football Highlights vs Otay Ranch</h2>
+            <p class="gallery-card-caption">
+              Grossmont High School varsity game film and highlight reel vs Otay Ranch High School featured on Hudl.
+            </p>
+            <div class="gallery-card-action">
+              <span>Click to play in theater modal &rarr;</span>
+              <button type="button" class="card-change-link-btn" data-card-id="gallery-card-2">Change Media</button>
+            </div>
+          </div>
+        </article>
+
+        <!-- Card 3: Social Media Post / Embed -->
+        <article 
+          class="gallery-card" 
+          id="gallery-card-3"
+          data-type="social"
+          data-title="Project Launch & Full-Stack Showcase"
+          data-caption="Official announcement sharing the release of my Node.js Express web application and data persistence architecture with the developer community."
+          data-src="assets/images/social-post-card.svg"
+          data-external-url="https://twitter.com"
+        >
+          <div class="gallery-media-frame">
+            <span class="media-badge">Social Post</span>
+            <img src="assets/images/social-post-card.svg" alt="Social media feed embed of Kiyan Rackley's web project announcement" loading="lazy">
+            <button type="button" class="card-edit-image-btn" data-card-id="gallery-card-3" title="Change this image" aria-label="Change image for Social Media Post">
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M23 19a2 2 0 0 1-2 2H3a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h4l2-3h6l2 3h4a2 2 0 0 1 2 2z"></path>
+                <circle cx="12" cy="13" r="4"></circle>
+              </svg>
+              <span>Change Image</span>
+            </button>
+          </div>
+          <div class="gallery-card-body">
+            <h2 class="gallery-card-title">Community Project Announcement</h2>
+            <p class="gallery-card-caption">
+              Sharing technical milestones and architectural lessons learned with over 250 fellow student builders.
+            </p>
+            <div class="gallery-card-action">
+              <span>View original post on Tech Network &rarr;</span>
+              <button type="button" class="card-change-link-btn" data-card-id="gallery-card-3">Change Image</button>
+            </div>
+          </div>
+        </article>
+
+        <!-- Card 4: Image - Student Tech Presentation -->
+        <article 
+          class="gallery-card" 
+          id="gallery-card-4"
+          data-type="image"
+          data-title="Technical Conference Presentation"
+          data-caption="Delivering a presentation on reactive state patterns and server-side data persistence at the regional student symposium."
+          data-src="assets/images/student-presentation.jpg"
+        >
+          <div class="gallery-media-frame">
+            <span class="media-badge">Photo</span>
+            <img src="assets/images/student-presentation.jpg" alt="Kiyan presenting software engineering slides at university" loading="lazy">
+            <button type="button" class="card-edit-image-btn" data-card-id="gallery-card-4" title="Change this image" aria-label="Change image for Technical Presentation">
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M23 19a2 2 0 0 1-2 2H3a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h4l2-3h6l2 3h4a2 2 0 0 1 2 2z"></path>
+                <circle cx="12" cy="13" r="4"></circle>
+              </svg>
+              <span>Change Image</span>
+            </button>
+          </div>
+          <div class="gallery-card-body">
+            <h2 class="gallery-card-title">Architecture Lecture & Slides</h2>
+            <p class="gallery-card-caption">
+              Speaking on best practices for designing maintainable full-stack backends with Express and JSON storage.
+            </p>
+            <div class="gallery-card-action">
+              <span>Click to enlarge view &rarr;</span>
+              <button type="button" class="card-change-link-btn" data-card-id="gallery-card-4">Change Image</button>
+            </div>
+          </div>
+        </article>
+
+        <!-- Card 5: Image - Hackathon Award & First Place Trophy -->
+        <article 
+          class="gallery-card" 
+          id="gallery-card-5"
+          data-type="image"
+          data-title="First Place Hackathon Trophy"
+          data-caption="Awarded Best Engineering Architecture at the 2026 Intercollegiate 48-Hour Hackathon for an offline-first emergency coordination portal."
+          data-src="assets/images/hackathon-award.svg"
+        >
+          <div class="gallery-media-frame">
+            <span class="media-badge">Award</span>
+            <img src="assets/images/hackathon-award.svg" alt="First place trophy award from University Hackathon" loading="lazy">
+            <button type="button" class="card-edit-image-btn" data-card-id="gallery-card-5" title="Change this image" aria-label="Change image for Hackathon Award">
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M23 19a2 2 0 0 1-2 2H3a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h4l2-3h6l2 3h4a2 2 0 0 1 2 2z"></path>
+                <circle cx="12" cy="13" r="4"></circle>
+              </svg>
+              <span>Change Image</span>
+            </button>
+          </div>
+          <div class="gallery-card-body">
+            <h2 class="gallery-card-title">Best Engineering Architecture Award</h2>
+            <p class="gallery-card-caption">
+              Honored with 1st place among 60 collegiate engineering teams for technical rigor, speed, and resilient system design.
+            </p>
+            <div class="gallery-card-action">
+              <span>Click to view award credentials &rarr;</span>
+              <button type="button" class="card-change-link-btn" data-card-id="gallery-card-5">Change Image</button>
+            </div>
+          </div>
+        </article>
+
+        <!-- Card 6: Image - Robotics Hardware Lab -->
+        <article 
+          class="gallery-card" 
+          id="gallery-card-6"
+          data-type="image"
+          data-title="Embedded Systems & Robotics Lab"
+          data-caption="Prototyping sensor telemetry and microcontroller serial communication for autonomous robotic navigation."
+          data-src="assets/images/robotics-project.jpg"
+        >
+          <div class="gallery-media-frame">
+            <span class="media-badge">Hardware</span>
+            <img src="assets/images/robotics-project.jpg" alt="Robotics workbench with microcontrollers and circuit boards" loading="lazy">
+            <button type="button" class="card-edit-image-btn" data-card-id="gallery-card-6" title="Change this image" aria-label="Change image for Robotics Hardware Lab">
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M23 19a2 2 0 0 1-2 2H3a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h4l2-3h6l2 3h4a2 2 0 0 1 2 2z"></path>
+                <circle cx="12" cy="13" r="4"></circle>
+              </svg>
+              <span>Change Image</span>
+            </button>
+          </div>
+          <div class="gallery-card-body">
+            <h2 class="gallery-card-title">IoT Telemetry & Embedded Workbench</h2>
+            <p class="gallery-card-caption">
+              Bridging hardware sensors with real-time web dashboards using WebSockets and low-latency serial buses.
+            </p>
+            <div class="gallery-card-action">
+              <span>Click to inspect lab details &rarr;</span>
+              <button type="button" class="card-change-link-btn" data-card-id="gallery-card-6">Change Image</button>
+            </div>
+          </div>
+        </article>
+
+        <!-- Card 7: Image - Open Source Contributions Matrix -->
+        <article 
+          class="gallery-card" 
+          id="gallery-card-7"
+          data-type="image"
+          data-title="Open-Source Commit Pipeline"
+          data-caption="Continuous integration and pull request workflow highlighting 500+ git contributions across educational software packages."
+          data-src="assets/images/open-source-commit.svg"
+        >
+          <div class="gallery-media-frame">
+            <span class="media-badge">Code</span>
+            <img src="assets/images/open-source-commit.svg" alt="Git contribution graph and version release timeline" loading="lazy">
+            <button type="button" class="card-edit-image-btn" data-card-id="gallery-card-7" title="Change this image" aria-label="Change image for Open Source Pipeline">
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M23 19a2 2 0 0 1-2 2H3a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h4l2-3h6l2 3h4a2 2 0 0 1 2 2z"></path>
+                <circle cx="12" cy="13" r="4"></circle>
+              </svg>
+              <span>Change Image</span>
+            </button>
+          </div>
+          <div class="gallery-card-body">
+            <h2 class="gallery-card-title">Open Source Development History</h2>
+            <p class="gallery-card-caption">
+              Maintaining high test coverage, automated linting, and semantic versioning across public GitHub repositories.
+            </p>
+            <div class="gallery-card-action">
+              <span>Click to view git telemetry &rarr;</span>
+              <button type="button" class="card-change-link-btn" data-card-id="gallery-card-7">Change Image</button>
+            </div>
+          </div>
+        </article>
+
+        <!-- Card 8: Image - STEM Mentorship Workshop -->
+        <article 
+          class="gallery-card" 
+          id="gallery-card-8"
+          data-type="image"
+          data-title="Youth STEM Coding Workshop"
+          data-caption="Mentoring 25 high school students in introductory web programming, algorithm foundations, and responsive layout design."
+          data-src="assets/images/mentorship-workshop.svg"
+        >
+          <div class="gallery-media-frame">
+            <span class="media-badge">Outreach</span>
+            <img src="assets/images/mentorship-workshop.svg" alt="Coding boot camp mentorship session classroom" loading="lazy">
+            <button type="button" class="card-edit-image-btn" data-card-id="gallery-card-8" title="Change this image" aria-label="Change image for STEM Mentorship">
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M23 19a2 2 0 0 1-2 2H3a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h4l2-3h6l2 3h4a2 2 0 0 1 2 2z"></path>
+                <circle cx="12" cy="13" r="4"></circle>
+              </svg>
+              <span>Change Image</span>
+            </button>
+          </div>
+          <div class="gallery-card-body">
+            <h2 class="gallery-card-title">STEM Educational Outreach</h2>
+            <p class="gallery-card-caption">
+              Leading weekend code clinics designed to lower barriers to entry for underrepresented students in computer science.
+            </p>
+            <div class="gallery-card-action">
+              <span>Click to view mentorship impact &rarr;</span>
+              <button type="button" class="card-change-link-btn" data-card-id="gallery-card-8">Change Image</button>
+            </div>
+          </div>
+        </article>
+
+        <!-- Card 9: Image - Honors Engineering Research Poster -->
+        <article 
+          class="gallery-card" 
+          id="gallery-card-9"
+          data-type="image"
+          data-title="Honors Research Symposium Poster"
+          data-caption="Academic poster presentation summarizing benchmarks on cloud latency, asynchronous queues, and resilient uptime."
+          data-src="assets/images/research-poster.svg"
+        >
+          <div class="gallery-media-frame">
+            <span class="media-badge">Research</span>
+            <img src="assets/images/research-poster.svg" alt="Academic research symposium poster on high performance computing" loading="lazy">
+            <button type="button" class="card-edit-image-btn" data-card-id="gallery-card-9" title="Change this image" aria-label="Change image for Honors Research Poster">
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M23 19a2 2 0 0 1-2 2H3a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h4l2-3h6l2 3h4a2 2 0 0 1 2 2z"></path>
+                <circle cx="12" cy="13" r="4"></circle>
+              </svg>
+              <span>Change Image</span>
+            </button>
+          </div>
+          <div class="gallery-card-body">
+            <h2 class="gallery-card-title">Academic Engineering Symposium</h2>
+            <p class="gallery-card-caption">
+              Published benchmarks and algorithmic analyses evaluating server throughput under concurrent I/O conditions.
+            </p>
+            <div class="gallery-card-action">
+              <span>Click to view poster research &rarr;</span>
+              <button type="button" class="card-change-link-btn" data-card-id="gallery-card-9">Change Image</button>
+            </div>
+          </div>
+        </article>
+
+      </section>
+    </div>
+  </main>
+
+  <!-- Lightbox Modal for Gallery Cards -->
+  <div class="modal-backdrop" id="media-lightbox-modal" role="dialog" aria-modal="true" aria-labelledby="modal-title">
+    <div class="modal-content">
+      <button class="modal-close-btn" id="modal-close-btn" aria-label="Close media preview">&times;</button>
+      <div class="modal-media-container" id="modal-media-container"></div>
+      <div class="modal-body">
+        <h3 class="modal-title" id="modal-title"></h3>
+        <p class="modal-caption" id="modal-caption"></p>
+        <div class="modal-actions-bar" id="modal-actions-bar">
+          <button type="button" class="btn btn-outline btn-sm" id="modal-change-img-btn">
+            <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M23 19a2 2 0 0 1-2 2H3a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h4l2-3h6l2 3h4a2 2 0 0 1 2 2z"></path>
+              <circle cx="12" cy="13" r="4"></circle>
+            </svg>
+            <span>Change This Image</span>
+          </button>
+          <button type="button" class="btn btn-outline btn-sm" id="modal-reset-img-btn" style="display: none; color: #f87171; border-color: rgba(239, 68, 68, 0.4);">
+            <span>Reset Card</span>
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Change Media Image Modal -->
+  <div class="modal-backdrop" id="change-image-modal" role="dialog" aria-modal="true" aria-labelledby="change-modal-title">
+    <div class="modal-content change-modal-dialog">
+      <button class="modal-close-btn" id="change-modal-close-btn" aria-label="Close change image dialog">&times;</button>
+      
+      <div class="change-modal-header">
+        <div class="change-modal-icon">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <rect x="3" y="3" width="18" height="18" rx="2" ry="2"></rect>
+            <circle cx="8.5" cy="8.5" r="1.5"></circle>
+            <polyline points="21 15 16 10 5 21"></polyline>
+          </svg>
+        </div>
+        <div>
+          <h2 class="change-modal-title" id="change-modal-title">Change Media Image</h2>
+          <p class="change-modal-subtitle" id="change-modal-subtitle">Replace this gallery card's image with a local upload or web URL.</p>
+        </div>
+      </div>
+
+      <div class="change-modal-body">
+        <!-- Target Card Selection -->
+        <div class="form-group" style="margin-bottom: 1.25rem;">
+          <label for="change-target-card-select" style="font-size: 0.85rem; font-weight: 700; color: #cbd5e1; margin-bottom: 0.4rem; display: block;">Select Media Card to Update</label>
+          <select id="change-target-card-select" class="form-control">
+            <option value="gallery-card-1">Card 1: Computer Lab Portrait</option>
+            <option value="gallery-card-2">Card 2: Football Highlights vs Otay Ranch (Hudl)</option>
+            <option value="gallery-card-3">Card 3: Community Project Announcement</option>
+            <option value="gallery-card-4">Card 4: Architecture Lecture & Slides</option>
+            <option value="gallery-card-5">Card 5: Best Engineering Architecture Award</option>
+            <option value="gallery-card-6">Card 6: IoT Telemetry & Embedded Workbench</option>
+            <option value="gallery-card-7">Card 7: Open Source Development History</option>
+            <option value="gallery-card-8">Card 8: STEM Educational Outreach</option>
+            <option value="gallery-card-9">Card 9: Academic Engineering Symposium</option>
+          </select>
+        </div>
+
+        <!-- Input Mode Tabs -->
+        <div class="change-tabs" role="tablist">
+          <button type="button" class="change-tab-btn active" id="tab-btn-upload" role="tab" aria-selected="true">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path>
+              <polyline points="17 8 12 3 7 8"></polyline>
+              <line x1="12" y1="3" x2="12" y2="15"></line>
+            </svg>
+            <span>Upload File</span>
+          </button>
+          <button type="button" class="change-tab-btn" id="tab-btn-url" role="tab" aria-selected="false">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path>
+              <path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path>
+            </svg>
+            <span>Image URL</span>
+          </button>
+        </div>
+
+        <!-- Tab 1: Upload File Area -->
+        <div class="change-tab-panel active" id="tab-panel-upload">
+          <div class="dropzone-area" id="change-dropzone" tabindex="0" role="button" aria-label="Drop image file or click to browse">
+            <input type="file" id="change-file-input" accept="image/*,video/mp4" style="display: none;">
+            <svg width="42" height="42" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" style="color: #60a5fa; margin-bottom: 0.6rem;">
+              <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path>
+              <polyline points="17 8 12 3 7 8"></polyline>
+              <line x1="12" y1="3" x2="12" y2="15"></line>
+            </svg>
+            <p class="dropzone-text"><strong>Drag and drop image here</strong> or <button type="button" class="dropzone-browse-link" id="change-browse-btn">browse files</button></p>
+            <span class="dropzone-hint">Supports JPG, PNG, WebP, GIF, SVG (up to 25MB)</span>
+          </div>
+        </div>
+
+        <!-- Tab 2: URL Input Area -->
+        <div class="change-tab-panel" id="tab-panel-url" style="display: none;">
+          <div class="form-group" style="margin-bottom: 0.5rem;">
+            <label for="change-url-input" style="font-size: 0.85rem; font-weight: 700; color: #cbd5e1; margin-bottom: 0.4rem; display: block;">Web Image or Video URL</label>
+            <div style="display: flex; gap: 0.5rem;">
+              <input type="url" id="change-url-input" class="form-control" placeholder="https://images.example.com/photo.jpg">
+              <button type="button" class="btn btn-outline btn-sm" id="change-url-preview-btn">Preview</button>
+            </div>
+            <span style="color: var(--text-muted); font-size: 0.78rem; margin-top: 0.35rem; display: block;">
+              Works with web photo links, collegiate images, high-res assets, or raw video streams.
+            </span>
+          </div>
+        </div>
+
+        <!-- Side-by-Side Comparison -->
+        <div class="preview-comparison-box">
+          <div class="preview-col">
+            <span class="preview-col-label">Current Card Image</span>
+            <div class="preview-frame" id="current-img-preview-frame">
+              <img id="current-img-preview" src="" alt="Current image in card">
+            </div>
+          </div>
+          <div class="preview-col">
+            <span class="preview-col-label">New Replacement</span>
+            <div class="preview-frame" id="new-img-preview-frame">
+              <div class="preview-placeholder" id="new-img-placeholder">Choose a file or enter a URL above</div>
+              <img id="new-img-preview" src="" alt="New image preview" style="display: none;">
+            </div>
+          </div>
+        </div>
+
+        <!-- Optional Metadata Customization -->
+        <details class="change-meta-accordion" style="margin-top: 1.15rem; border: 1px solid var(--border); border-radius: var(--radius-md); padding: 0.75rem 1rem; background: #060910;">
+          <summary style="cursor: pointer; font-size: 0.85rem; font-weight: 600; color: #93c5fd; user-select: none;">
+            ✎ Optional: Edit Card Title & Caption
+          </summary>
+          <div style="margin-top: 0.85rem; display: flex; flex-direction: column; gap: 0.75rem;">
+            <div class="form-group">
+              <label for="change-title-input" style="font-size: 0.8rem; font-weight: 600;">Title</label>
+              <input type="text" id="change-title-input" class="form-control" placeholder="Card title">
+            </div>
+            <div class="form-group">
+              <label for="change-caption-input" style="font-size: 0.8rem; font-weight: 600;">Caption / Description</label>
+              <textarea id="change-caption-input" class="form-control" rows="2" placeholder="Description of the media item"></textarea>
+            </div>
+          </div>
+        </details>
+
+        <!-- Feedback & Status Output -->
+        <div class="form-feedback" id="change-modal-feedback" style="margin-top: 0.9rem;"></div>
+      </div>
+
+      <div class="change-modal-footer">
+        <button type="button" class="btn btn-outline" id="change-modal-cancel-btn">Cancel</button>
+        <button type="button" class="btn btn-outline" id="change-modal-reset-btn" style="color: #f87171; border-color: rgba(239, 68, 68, 0.4);" title="Revert to original default image">
+          Reset Card
+        </button>
+        <button type="button" class="btn btn-primary" id="change-modal-save-btn">
+          Save & Apply Image
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Toast Notification Container -->
+  <div class="toast-notification" id="gallery-toast" role="alert" aria-live="polite"></div>
+
+  <!-- Universal Footer -->
+  <footer class="site-footer">
+    <div class="footer-container">
+      <div class="footer-top">
+        <div class="brand-logo">
+          <div class="logo-badge">KR</div>
+          <span class="brand-name">Kiyan Rackley</span>
+        </div>
+        <nav class="footer-nav" aria-label="Footer Navigation">
+          <a href="index.html">Home</a>
+          <a href="media.html">Media</a>
+          <a href="future.html">Future</a>
+          <a href="projects.html">Projects</a>
+          <a href="hobbies.html">Hobbies</a>
+          <a href="admin.html">Admin Dashboard</a>
+        </nav>
+      </div>
+      <div class="footer-bottom">
+        <p>&copy; 2026 Kiyan Rackley. All rights reserved.</p>
+        <p>Built with HTML, CSS, JavaScript, and Node.js Express.</p>
+      </div>
+    </div>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>

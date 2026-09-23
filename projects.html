@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Engineering Projects - Kiyan Rackley</title>
+  <meta name="description" content="Technical portfolio of software systems, applications, and hardware prototypes engineered by Kiyan Rackley.">
+  <meta property="og:title" content="Engineering Projects - Kiyan Rackley">
+  <meta property="og:description" content="Technical portfolio of software systems, applications, and hardware prototypes engineered by Kiyan Rackley.">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+  <!-- Universal Header -->
+  <header class="site-header">
+    <div class="header-container">
+      <a href="index.html" class="brand-logo">
+        <div class="logo-badge">KR</div>
+        <div class="brand-text">
+          <span class="brand-name">Kiyan Rackley</span>
+          <span class="brand-tagline">Grossmont HS Freshman • Football & Tech</span>
+        </div>
+      </a>
+
+      <button class="nav-toggle-btn" id="nav-toggle-btn" aria-label="Toggle Navigation Menu" aria-expanded="false">
+        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <line x1="3" y1="12" x2="21" y2="12"></line>
+          <line x1="3" y1="6" x2="21" y2="6"></line>
+          <line x1="3" y1="18" x2="21" y2="18"></line>
+        </svg>
+      </button>
+
+      <nav aria-label="Main Navigation">
+        <ul class="nav-menu" id="nav-menu">
+          <li class="nav-item"><a href="index.html" id="nav-link-home">Home</a></li>
+          <li class="nav-item"><a href="media.html" id="nav-link-media">Media</a></li>
+          <li class="nav-item"><a href="future.html" id="nav-link-future">Future</a></li>
+          <li class="nav-item"><a href="projects.html" class="active" id="nav-link-projects">Projects</a></li>
+          <li class="nav-item"><a href="hobbies.html" id="nav-link-hobbies">Hobbies</a></li>
+          <li class="nav-item"><a href="admin.html" id="nav-link-admin">Admin</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <div class="page-hero-banner">
+      <h1>Technical Projects & Software Systems</h1>
+      <p class="subtitle">
+        Deep dive into full-stack web applications, microservices, and hardware prototypes built with modern engineering standards.
+      </p>
+    </div>
+
+    <div class="page-container">
+      <!-- Architecture Overview -->
+      <section style="margin-bottom: 3.5rem;">
+        <div class="section-title-wrap">
+          <h2>Application Architecture Standards</h2>
+          <p>How I build resilient, decoupled applications across frontend, backend, and persistent storage layers.</p>
+        </div>
+        <div style="text-align: center; margin: 0 auto; max-width: 800px; border-radius: var(--radius-lg); overflow: hidden; box-shadow: var(--shadow-lg); border: 1px solid var(--border);">
+          <img src="assets/images/code-architecture.svg" alt="Diagram showing full-stack client, express server, and app storage architecture" style="width: 100%; display: block;">
+        </div>
+      </section>
+
+      <!-- Projects Grid -->
+      <section>
+        <div class="section-title-wrap">
+          <h2>Featured Software Repositories</h2>
+          <p>Selected engineering projects with live architectures and source implementations.</p>
+        </div>
+
+        <div class="content-grid-cards">
+          <!-- Project 1 -->
+          <article class="feature-box" id="project-card-fullstack">
+            <span class="media-badge" style="position: static; margin-bottom: 1rem; display: inline-block;">Node.js / Express</span>
+            <h3>Replit Full-Stack Web Engine</h3>
+            <p>
+              Autonomous 6-page responsive web platform built for high-throughput container environments. Features custom Express REST endpoints, zero external database lock-in, and synchronous atomic file updates to <code>data/contactReceived.json</code>.
+            </p>
+            <div style="margin-top: 1.25rem;">
+              <span style="font-size: 0.8rem; font-weight: 700; color: var(--primary); text-transform: uppercase;">Key Tech:</span>
+              <p style="font-size: 0.85rem; color: var(--text-muted); margin-top: 0.2rem;">Express 4.21, JavaScript ES Modules, REST APIs, Token Security</p>
+            </div>
+          </article>
+
+          <!-- Project 2 -->
+          <article class="feature-box" id="project-card-robotics">
+            <span class="media-badge" style="position: static; margin-bottom: 1rem; display: inline-block;">C++ / Hardware</span>
+            <h3>IoT Telemetry & Embedded Sensor Bridge</h3>
+            <p>
+              Microcontroller firmware transmitting ultrasonic and optical telemetry over serial UART to a Node daemon. Translates raw analog voltage pulses into normalized JSON metrics with sub-15ms latency.
+            </p>
+            <div style="margin-top: 1.25rem;">
+              <span style="font-size: 0.8rem; font-weight: 700; color: var(--primary); text-transform: uppercase;">Key Tech:</span>
+              <p style="font-size: 0.85rem; color: var(--text-muted); margin-top: 0.2rem;">Embedded C++, ESP32, UART Serial, WebSockets, Circuit Prototyping</p>
+            </div>
+          </article>
+
+          <!-- Project 3 -->
+          <article class="feature-box" id="project-card-dashboard">
+            <span class="media-badge" style="position: static; margin-bottom: 1rem; display: inline-block;">Chart.js / Analytics</span>
+            <h3>Secure Admin Analytics Dashboard</h3>
+            <p>
+              Administrative dashboard utilizing bearer token authorization, interactive dynamic filtering (All, New, Replied), and vector charts to analyze incoming contact sentiment and category distribution.
+            </p>
+            <div style="margin-top: 1.25rem;">
+              <span style="font-size: 0.8rem; font-weight: 700; color: var(--primary); text-transform: uppercase;">Key Tech:</span>
+              <p style="font-size: 0.85rem; color: var(--text-muted); margin-top: 0.2rem;">Chart.js, Session Token Auth, PATCH State Updaters, Semantic HTML5</p>
+            </div>
+          </article>
+        </div>
+      </section>
+    </div>
+  </main>
+
+  <!-- Universal Footer -->
+  <footer class="site-footer">
+    <div class="footer-container">
+      <div class="footer-top">
+        <div class="brand-logo">
+          <div class="logo-badge">KR</div>
+          <span class="brand-name">Kiyan Rackley</span>
+        </div>
+        <nav class="footer-nav" aria-label="Footer Navigation">
+          <a href="index.html">Home</a>
+          <a href="media.html">Media</a>
+          <a href="future.html">Future</a>
+          <a href="projects.html">Projects</a>
+          <a href="hobbies.html">Hobbies</a>
+          <a href="admin.html">Admin Dashboard</a>
+        </nav>
+      </div>
+      <div class="footer-bottom">
+        <p>&copy; 2026 Kiyan Rackley. All rights reserved.</p>
+        <p>Built with HTML, CSS, JavaScript, and Node.js Express.</p>
+      </div>
+    </div>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>

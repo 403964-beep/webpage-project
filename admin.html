@@ -1,0 +1,232 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Admin Dashboard - Kiyan Rackley</title>
+  <meta name="description" content="Secure administrative dashboard for managing visitor contact messages, reply workflows, and communication metrics.">
+  <meta property="og:title" content="Admin Dashboard - Kiyan Rackley">
+  <meta property="og:description" content="Secure administrative dashboard for managing visitor contact messages, reply workflows, and communication metrics.">
+  <link rel="stylesheet" href="styles.css">
+  <!-- Chart.js for Dashboard Analytics -->
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+<body>
+
+  <!-- Universal Header -->
+  <header class="site-header">
+    <div class="header-container">
+      <a href="index.html" class="brand-logo">
+        <div class="logo-badge">KR</div>
+        <div class="brand-text">
+          <span class="brand-name">Kiyan Rackley</span>
+          <span class="brand-tagline">Grossmont HS Freshman • Football & Tech</span>
+        </div>
+      </a>
+
+      <button class="nav-toggle-btn" id="nav-toggle-btn" aria-label="Toggle Navigation Menu" aria-expanded="false">
+        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <line x1="3" y1="12" x2="21" y2="12"></line>
+          <line x1="3" y1="6" x2="21" y2="6"></line>
+          <line x1="3" y1="18" x2="21" y2="18"></line>
+        </svg>
+      </button>
+
+      <nav aria-label="Main Navigation">
+        <ul class="nav-menu" id="nav-menu">
+          <li class="nav-item"><a href="index.html" id="nav-link-home">Home</a></li>
+          <li class="nav-item"><a href="media.html" id="nav-link-media">Media</a></li>
+          <li class="nav-item"><a href="future.html" id="nav-link-future">Future</a></li>
+          <li class="nav-item"><a href="projects.html" id="nav-link-projects">Projects</a></li>
+          <li class="nav-item"><a href="hobbies.html" id="nav-link-hobbies">Hobbies</a></li>
+          <li class="nav-item"><a href="admin.html" class="active" id="nav-link-admin">Admin</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <div class="page-hero-banner">
+      <h1>Admin Dashboard</h1>
+      <p class="subtitle">
+        Protected message center for tracking contact inquiries, updating reply statuses, and monitoring visitor metrics.
+      </p>
+    </div>
+
+    <div class="page-container">
+
+      <!-- Section 1: Authentication Form (Shown when unauthenticated) -->
+      <section class="admin-auth-card" id="admin-auth-section">
+        <h2>Admin Authentication</h2>
+        <p>Please enter the administrator password to access message records and data controls.</p>
+
+        <div id="login-error-message" class="form-feedback error" style="margin-bottom: 1.25rem;"></div>
+
+        <form id="admin-login-form">
+          <div class="form-group" style="text-align: left; margin-bottom: 1.25rem;">
+            <label for="admin-password-input">Admin Password</label>
+            <input 
+              type="password" 
+              id="admin-password-input" 
+              class="form-control" 
+              placeholder="Enter password..." 
+              required
+              autocomplete="current-password"
+            >
+          </div>
+          <button type="submit" class="btn btn-primary" style="width: 100%;" id="admin-login-btn">
+            Unlock Dashboard
+          </button>
+        </form>
+      </section>
+
+      <!-- Section 2: Authenticated Dashboard (Shown after successful login) -->
+      <section class="admin-dashboard" id="admin-dashboard-section">
+        <!-- Dashboard Header Bar -->
+        <div class="admin-header-bar">
+          <div>
+            <h2>Message Management Console</h2>
+            <p style="color: var(--text-muted); font-size: 0.95rem;">
+              Stored in <code>data/contactReceived.json</code> • Real-time server state
+            </p>
+          </div>
+          <div style="display: flex; gap: 0.75rem;">
+            <button class="btn btn-outline btn-sm" id="refresh-messages-btn" title="Reload messages from server">
+              ↻ Refresh Data
+            </button>
+            <button class="btn btn-outline btn-sm" id="admin-logout-btn" style="color: var(--danger); border-color: rgba(239, 68, 68, 0.4);">
+              Log Out
+            </button>
+          </div>
+        </div>
+
+        <!-- Metric Summary Cards -->
+        <div class="metrics-grid">
+          <div class="metric-card" id="card-total-messages">
+            <span class="metric-label">Total Messages</span>
+            <span class="metric-value highlight-blue" id="metric-total-messages">0</span>
+          </div>
+          <div class="metric-card" id="card-new-messages">
+            <span class="metric-label">New Messages</span>
+            <span class="metric-value highlight-amber" id="metric-new-messages">0</span>
+          </div>
+          <div class="metric-card" id="card-replied-messages">
+            <span class="metric-label">Replied Messages</span>
+            <span class="metric-value highlight-emerald" id="metric-replied-messages">0</span>
+          </div>
+          <div class="metric-card" id="card-reply-rate">
+            <span class="metric-label">Reply Rate</span>
+            <span class="metric-value" id="metric-reply-rate">0.0%</span>
+          </div>
+        </div>
+
+        <!-- Dashboard Chart: Messages by Reason for Contact -->
+        <div class="chart-card">
+          <h3>Inquiries by Contact Category</h3>
+          <div class="chart-wrapper">
+            <canvas id="reasonsChart"></canvas>
+          </div>
+        </div>
+
+        <!-- Website Portrait Photo Card -->
+        <div class="chart-card" style="margin-bottom: 2rem;">
+          <div style="display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 1rem;">
+            <div>
+              <h3 style="margin-bottom: 0.25rem;">Website Portrait Photo</h3>
+              <p style="color: var(--text-muted); font-size: 0.9rem;">Upload your exact original photo to update the homepage portrait and media gallery.</p>
+            </div>
+            <div style="display: flex; align-items: center; gap: 1.25rem;">
+              <img src="assets/images/student-portrait.jpg" alt="Current portrait" id="admin-portrait-preview" style="width: 54px; height: 54px; border-radius: var(--radius-md); object-fit: cover; border: 2px solid #1d4ed8;">
+              <label for="admin-photo-input" class="btn btn-primary btn-sm" style="cursor: pointer;">
+                <span>Choose Photo File</span>
+              </label>
+              <input type="file" id="admin-photo-input" accept="image/*" style="display: none;">
+            </div>
+          </div>
+          <div id="admin-photo-status" style="font-size: 0.85rem; margin-top: 0.75rem; color: #93c5fd; display: none;"></div>
+        </div>
+
+        <!-- Media Page Images Quick Access -->
+        <div class="chart-card" style="margin-bottom: 2rem;">
+          <div style="display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 1rem;">
+            <div>
+              <h3 style="margin-bottom: 0.25rem;">Media Page Showcase Images</h3>
+              <p style="color: var(--text-muted); font-size: 0.9rem;">Easily customize, replace, or reset any of the 9 gallery highlight photos and videos.</p>
+            </div>
+            <div>
+              <a href="media.html" class="btn btn-primary btn-sm" style="display: inline-flex; align-items: center; gap: 0.5rem; text-decoration: none;">
+                <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                  <path d="M23 19a2 2 0 0 1-2 2H3a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h4l2-3h6l2 3h4a2 2 0 0 1 2 2z"></path>
+                  <circle cx="12" cy="13" r="4"></circle>
+                </svg>
+                <span>Manage Media Images</span>
+              </a>
+            </div>
+          </div>
+        </div>
+
+        <!-- Messages Table & Filtering Controls -->
+        <div>
+          <div class="table-controls">
+            <h3 style="font-size: 1.25rem; font-weight: 750;">Incoming Contact Messages</h3>
+            <div class="filter-btn-group" role="group" aria-label="Filter Messages">
+              <button type="button" class="filter-btn active" data-filter="all">All Messages</button>
+              <button type="button" class="filter-btn" data-filter="new">New</button>
+              <button type="button" class="filter-btn" data-filter="replied">Replied</button>
+            </div>
+          </div>
+
+          <div class="table-container">
+            <table class="messages-table" id="admin-messages-table">
+              <thead>
+                <tr>
+                  <th>Sender</th>
+                  <th>Reason</th>
+                  <th>Message Body</th>
+                  <th>Date Received</th>
+                  <th>Status</th>
+                  <th>Action</th>
+                </tr>
+              </thead>
+              <tbody id="messages-table-body">
+                <!-- Rows injected dynamically via admin.js -->
+              </tbody>
+            </table>
+            <div id="table-empty-state" class="empty-state" style="display: none;">
+              <p>No messages match the current filter.</p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+    </div>
+  </main>
+
+  <!-- Universal Footer -->
+  <footer class="site-footer">
+    <div class="footer-container">
+      <div class="footer-top">
+        <div class="brand-logo">
+          <div class="logo-badge">KR</div>
+          <span class="brand-name">Kiyan Rackley</span>
+        </div>
+        <nav class="footer-nav" aria-label="Footer Navigation">
+          <a href="index.html">Home</a>
+          <a href="media.html">Media</a>
+          <a href="future.html">Future</a>
+          <a href="projects.html">Projects</a>
+          <a href="hobbies.html">Hobbies</a>
+          <a href="admin.html">Admin Dashboard</a>
+        </nav>
+      </div>
+      <div class="footer-bottom">
+        <p>&copy; 2026 Kiyan Rackley. All rights reserved.</p>
+        <p>Built with HTML, CSS, JavaScript, and Node.js Express.</p>
+      </div>
+    </div>
+  </footer>
+
+  <script src="script.js"></script>
+  <script src="admin.js"></script>
+</body>
+</html>

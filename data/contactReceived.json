@@ -1,0 +1,46 @@
+[
+  {
+    "id": "msg-1710000001-a1b2c3",
+    "firstName": "Sarah",
+    "lastName": "Jenkins",
+    "email": "sarah.jenkins@techinitiatives.org",
+    "reason": "Partnership",
+    "message": "Hi Kiyan, we loved your student presentation on scalable web systems. Would you be interested in speaking at our upcoming youth STEM hackathon in Seattle?",
+    "submittedAt": "2026-03-18T14:32:00.000Z",
+    "replied": true,
+    "repliedAt": "2026-03-19T09:15:00.000Z"
+  },
+  {
+    "id": "msg-1710000002-d4e5f6",
+    "firstName": "Marcus",
+    "lastName": "Chen",
+    "email": "mchen@innovatelabs.io",
+    "reason": "Opportunity",
+    "message": "Impressive portfolio project! We have an opening for a Summer Software Engineering Intern working on distributed systems and would love to review your application.",
+    "submittedAt": "2026-03-20T10:20:00.000Z",
+    "replied": false,
+    "repliedAt": null
+  },
+  {
+    "id": "msg-1710000003-g7h8i9",
+    "firstName": "Elena",
+    "lastName": "Rostova",
+    "email": "elena.r@university.edu",
+    "reason": "Question",
+    "message": "Hello! I saw your robotics workbench setup on your portfolio. Which serial communication library did you use for the sub-15ms telemetry bridge?",
+    "submittedAt": "2026-03-21T08:45:00.000Z",
+    "replied": false,
+    "repliedAt": null
+  },
+  {
+    "id": "cf6bd1dd-c738-448a-9fc3-2030ee00410e",
+    "firstName": "Alex",
+    "lastName": "Taylor",
+    "email": "alex@example.com",
+    "reason": "Comment",
+    "message": "Great portfolio website!",
+    "submittedAt": "2026-09-21T17:52:39.923Z",
+    "replied": true,
+    "repliedAt": "2026-09-21T17:52:47.760Z"
+  }
+]
