@@ -18,7 +18,7 @@ const MEDIA_CONFIG_FILE = path.join(DATA_DIR, 'mediaConfig.json');
 const UPLOADS_DIR = path.join(__dirname, 'assets', 'images', 'uploads');
 
 // Admin credentials
-const ADMIN_PASSWORD = process.env.ADMIN_PASSWORD || 'admin123';
+const ADMIN_PASSWORD = process.env.ADMIN_PASSWORD;
 
 // Active in-memory session tokens for Admin authentication
 const activeAdminTokens = new Set();
@@ -172,6 +172,9 @@ app.post('/api/contact', (req, res) => {
 
 // POST /api/admin/login - Authenticate with admin password
 app.post('/api/admin/login', (req, res) => {
+  if (!ADMIN_PASSWORD) {
+    return res.status(503).json({ error: 'Admin access is not configured.' });
+  }
   const { password } = req.body;
   if (!password || typeof password !== 'string') {
     return res.status(400).json({ error: 'Password is required.' });
@@ -246,7 +249,7 @@ app.patch('/api/admin/messages/:id/replied', requireAdminAuth, (req, res) => {
 });
 
 // POST /api/upload-portrait - Upload exact original portrait image
-app.post('/api/upload-portrait', (req, res) => {
+app.post('/api/upload-portrait', requireAdminAuth, (req, res) => {
   try {
     const { imageBase64 } = req.body;
     if (!imageBase64) {
@@ -283,7 +286,7 @@ app.get('/api/media', (req, res) => {
 });
 
 // POST /api/media/update - Update an image or metadata on the media page
-app.post('/api/media/update', (req, res) => {
+app.post('/api/media/update', requireAdminAuth, (req, res) => {
   try {
     const { cardId, imageSrc, title, caption, badge } = req.body;
     if (!cardId || typeof cardId !== 'string') {
@@ -349,7 +352,7 @@ app.post('/api/media/update', (req, res) => {
 });
 
 // POST /api/media/reset - Reset a card or all cards back to defaults
-app.post('/api/media/reset', (req, res) => {
+app.post('/api/media/reset', requireAdminAuth, (req, res) => {
   try {
     const { cardId, all } = req.body;
     ensureDataFile();
@@ -379,8 +382,18 @@ app.post('/api/media/reset', (req, res) => {
 // Static File Serving & Page Routing
 // ==========================================
 
-// Serve static assets from project root
-app.use(express.static(__dirname));
+// Serve only public files. The project root also contains private contact data
+// and server configuration, so it must not be exposed as a static directory.
+app.use('/assets', express.static(path.join(__dirname, 'assets')));
+const PUBLIC_FILES = new Set([
+  'index.html', 'media.html', 'future.html', 'projects.html',
+  'hobbies.html', 'community.html', 'athletics.html', 'admin.html',
+  'styles.css', 'script.js', 'admin.js',
+]);
+app.get('/:file', (req, res, next) => {
+  if (!PUBLIC_FILES.has(req.params.file)) return next();
+  res.sendFile(path.join(__dirname, req.params.file));
+});
 
 // Explicit route fallbacks for clean navigation
 app.get('/', (req, res) => {

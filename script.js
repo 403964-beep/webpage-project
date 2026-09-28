@@ -168,6 +168,7 @@ function setupMediaGallery() {
   const cards = document.querySelectorAll('.gallery-card');
   const lightboxModal = document.getElementById('media-lightbox-modal');
   if (!cards.length) return;
+  const adminToken = sessionStorage.getItem('admin_session_token');
 
   // Track initial defaults so cards can always be cleanly restored
   const defaultCardMap = {};
@@ -228,6 +229,14 @@ function setupMediaGallery() {
   const btnQuickChangeAny = document.getElementById('btn-quick-change-any');
   const btnResetAllMedia = document.getElementById('btn-reset-all-media');
   const galleryGrid = document.getElementById('media-gallery-grid');
+  if (!adminToken) {
+    [btnToggleEditMode, btnQuickChangeAny, lightboxChangeBtn, lightboxResetBtn].forEach((button) => {
+      if (button) button.style.display = 'none';
+    });
+    document.querySelectorAll('.card-edit-image-btn, .card-change-link-btn').forEach((button) => {
+      button.style.display = 'none';
+    });
+  }
 
   // 1. Toast Notification Helper
   let toastTimer = null;
@@ -305,7 +314,7 @@ function setupMediaGallery() {
     });
 
     if (btnResetAllMedia) {
-      btnResetAllMedia.style.display = hasAnyCustom ? 'inline-flex' : 'none';
+      btnResetAllMedia.style.display = hasAnyCustom && adminToken ? 'inline-flex' : 'none';
     }
   }
 
@@ -371,7 +380,7 @@ function setupMediaGallery() {
 
       // Update lightbox buttons
       if (lightboxResetBtn) {
-        lightboxResetBtn.style.display = currentOverrides[card.id] ? 'inline-flex' : 'none';
+        lightboxResetBtn.style.display = currentOverrides[card.id] && adminToken ? 'inline-flex' : 'none';
       }
 
       if (lightboxModal) {
@@ -671,7 +680,7 @@ function setupMediaGallery() {
 
         const res = await fetch('/api/media/update', {
           method: 'POST',
-          headers: { 'Content-Type': 'application/json' },
+          headers: { 'Content-Type': 'application/json', 'Authorization': `Bearer ${adminToken}` },
           body: JSON.stringify(payload),
         });
 
@@ -700,7 +709,7 @@ function setupMediaGallery() {
     try {
       const res = await fetch('/api/media/reset', {
         method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
+        headers: { 'Content-Type': 'application/json', 'Authorization': `Bearer ${adminToken}` },
         body: JSON.stringify({ cardId }),
       });
       const data = await res.json();
@@ -732,7 +741,7 @@ function setupMediaGallery() {
       try {
         const res = await fetch('/api/media/reset', {
           method: 'POST',
-          headers: { 'Content-Type': 'application/json' },
+          headers: { 'Content-Type': 'application/json', 'Authorization': `Bearer ${adminToken}` },
           body: JSON.stringify({ all: true }),
         });
         const data = await res.json();
@@ -790,6 +799,12 @@ function setupPhotoUpload() {
   const heroPortrait = document.getElementById('student-hero-portrait');
 
   if (!photoWrapper || !fileInput) return;
+  const adminToken = sessionStorage.getItem('admin_session_token');
+  if (!adminToken) {
+    const uploadOverlay = document.getElementById('photo-upload-overlay');
+    if (uploadOverlay) uploadOverlay.style.display = 'none';
+    return;
+  }
 
   function showStatus(text, duration = 3500) {
     if (!statusEl) return;
@@ -814,7 +829,7 @@ function setupPhotoUpload() {
       try {
         const response = await fetch('/api/upload-portrait', {
           method: 'POST',
-          headers: { 'Content-Type': 'application/json' },
+          headers: { 'Content-Type': 'application/json', 'Authorization': `Bearer ${adminToken}` },
           body: JSON.stringify({ imageBase64: base64Data }),
         });
 

@@ -463,7 +463,7 @@ function setupAdminPhotoUpload() {
       try {
         const response = await fetch('/api/upload-portrait', {
           method: 'POST',
-          headers: { 'Content-Type': 'application/json' },
+          headers: { 'Content-Type': 'application/json', 'Authorization': `Bearer ${adminToken}` },
           body: JSON.stringify({ imageBase64: ev.target.result }),
         });
 
